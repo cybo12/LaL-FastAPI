@@ -14,7 +14,7 @@ def read_root():
 
 
 @app.get("/pi/{nb_digits}")
-def read_digits_number(nb_digits: int, q: str = None):
+def read_digits_number(nb_digits: int):
     return {pi(nb_digits), f"on container {docker_short_id}"}
 
 
