@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi_versioning import VersionedFastAPI, version
 #just to get the UID of the running container
 import socket
-from calculate_pi import pi
+from .calculate_pi import pi
 
 docker_short_id = socket.gethostname()
 
