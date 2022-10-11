@@ -130,3 +130,6 @@ dmypy.json
 
 
 data/*.csv
+tests/api_key.txt
+data/.DS_Store
+.DS_Store
