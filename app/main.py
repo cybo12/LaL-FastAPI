@@ -9,17 +9,17 @@ from .calculate_pi import pi
 docker_short_id = socket.gethostname()
 
 app = FastAPI(title="Lunche and Learn - FastApi")
-app = VersionedFastAPI(app, default_api_version=(1,0))
+app = VersionedFastAPI(app, default_api_version=(1,0),version_format='{major}',prefix_format='/v{major}')
 
 
 @app.get("/")
-@version(1, 0)
+@version(1)
 def read_root():
-    return {"Hello": docker_short_id}
+    return {"Hello": docker_short_id, "version":app.version}
 
 @app.get("/pi/{nb_digits}")
-@version(1, 0)
+@version(1)
 def read_digits_number(nb_digits: int):
     if(nb_digits)>5000:
         raise HTTPException(status_code=403, detail="it's to much for a test")
-    return {pi(nb_digits), f"running version {version} on container {docker_short_id}"}
+    return {pi(nb_digits), f"running version {app.version} on container {docker_short_id}"}
