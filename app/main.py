@@ -15,7 +15,7 @@ def read_root():
 
 @app.get("/pi/{nb_digits}")
 def read_digits_number(nb_digits: int, q: str = None):
-    return {pi(nb_digits)}
+    return {pi(nb_digits), f"on container {docker_short_id}"}
 
 
 # arccot function using power formula arccot = 1/x - 1/(3x^3) + 1/(5x^5) ...
@@ -38,6 +38,7 @@ def arccot(x, digits):
 # pi function
 def pi(decimals):
     timestart = time()
+    Decimal(4 * (4 * arccot(5, decimals + 3) - arccot(239, decimals + 3))).quantize(Decimal(10) ** (-decimals))
     timeelapsedint = round(time() - timestart, 2)
     timeelapsedstr = str(datetime.timedelta(seconds = round(timeelapsedint, 0)))
     return("runtime: " + timeelapsedstr + " or " + str(timeelapsedint) + " seconds.")
