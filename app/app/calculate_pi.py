@@ -26,4 +26,4 @@ def pi(decimals):
     Decimal(4 * (4 * arccot(5, decimals + 3) - arccot(239, decimals + 3))).quantize(Decimal(10) ** (-decimals))
     timeelapsedint = round(time() - timestart, 2)
     timeelapsedstr = str(datetime.timedelta(seconds = round(timeelapsedint, 0)))
-    return("runtime: " + timeelapsedstr + " or " + str(timeelapsedint) + " seconds.")
+    return{"runtime: " + timeelapsedstr + " or " + str(timeelapsedint) + " seconds."}
