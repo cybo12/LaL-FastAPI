@@ -1,4 +1,4 @@
 #!/bin/bash -ex
 
-python -m pip install --no-cache-dir --upgrade -r ../application/requirements.txt
+python -m pip install uvicorn gunicorn fastapi fastapi-versioning pytest
 python -m pytest
