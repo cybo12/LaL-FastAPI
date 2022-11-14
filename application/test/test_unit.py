@@ -1,10 +1,12 @@
-from fastapi.testclient import TestClient
 import re
+
 from app.main import app
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
 import re
+
 
 class pytest_regex:
     """Assert that a given string meets some expectations."""
@@ -21,12 +23,12 @@ class pytest_regex:
 def test_read_main():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"Hello": pytest_regex.match('^[0-9a-fA-F]{12}\b'),"version":app.versionpi}
+    assert response.json() == {"Hello": pytest_regex.match('^[0-9a-fA-F]{12}'),"version":app.versionpi}
 
 def test_pi_200():
     response = client.get("/pi/200")
     assert response.status_code == 200
-    assert response.json() == {"runtime: 0:00:00 or 0.02 seconds.",f"running version 0.1.0 on container {pytest_regex.match('^[0-9a-fA-F]{12}\b')}"}
+    assert response.json() == {"runtime: 0:00:00 or 0.02 seconds.",f"running version 0.1.0 on container {pytest_regex.match('^[0-9a-fA-F]{12}')}"}
 
 def test_pi_limit():
     response = client.get("/pi/50001")
