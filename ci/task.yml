@@ -11,5 +11,6 @@ inputs:
 - name: source-code
 
 run:
-  path: ci/task.sh
-  dir: source-code
+  path: python
+  args: ["pytest"]
+  dir: source-code/ci
