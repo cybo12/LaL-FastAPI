@@ -1,4 +1,4 @@
 #!/bin/bash -ex
 
-python -m pip install pytest
+pytho -m pip install --no-cache-dir --upgrade -r ../application/requirements.txt
 python -m pytest
