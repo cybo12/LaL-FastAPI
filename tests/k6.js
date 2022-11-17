@@ -14,6 +14,6 @@ export const options = {
 };
 
 export default function () {
-  http.get('http://lab1.gologic.ca:5001/pi/50');
+  http.get('http://lab1.gologic.ca:6969/pi/50');
   //sleep(1);
 }
