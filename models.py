@@ -3,8 +3,8 @@ from sqlalchemy.types import Date
 from database import Base
 
 
-class User(Base):
-    __tablename__ = "Users"
+class Item(Base):
+    __tablename__ = "Item"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(255), index=True)

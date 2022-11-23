@@ -2,10 +2,10 @@ from datetime import date
 from pydantic import BaseModel
 
 
-class UserCreate(BaseModel):
+class ItemCreate(BaseModel):
     name: str
 
-class User(BaseModel):
+class Item(BaseModel):
     id: int
     name: str
 

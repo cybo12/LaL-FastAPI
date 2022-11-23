@@ -33,15 +33,15 @@ def main():
     return { 'message': 'Bonjour Gologic' }
 
 
-@app.get("/users/", response_model=List[schemas.User])
+@app.get("/items/", response_model=List[schemas.Item])
 def get_all_users(db: Session = Depends(get_db)):
-    users = db.query(models.User).all()
-    return users
+    items = db.query(models.Item).all()
+    return items
 
-@app.post("/users/", response_model=schemas.User)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    new_user = models.User(name=user.name)
-    db.add(new_user)
+@app.post("/items/", response_model=schemas.Item)
+def create_user(item: schemas.ItemCreate, db: Session = Depends(get_db)):
+    new_item = models.Item(name=item.name)
+    db.add(new_item)
     db.commit()
-    db.refresh(new_user)
-    return new_user
+    db.refresh(new_item)
+    return new_item
