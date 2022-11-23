@@ -9,6 +9,6 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY . /code/app
+COPY . /code
 
-CMD ["uvicorn", "app.main:app","--workers", "2" ,"--host", "0.0.0.0"]
+CMD ["uvicorn", "main:app","--workers", "2" ,"--host", "0.0.0.0"]
